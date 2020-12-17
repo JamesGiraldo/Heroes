@@ -1,0 +1,31 @@
+.card-img-top{
+    border-top-left-radius: calc(1.25rem - 3px);
+    border-top-right-radius: calc(1.25rem - 3px);
+}
+.botonsito {
+    border-radius: 50%;
+    border: 2px solid #9a9da0;
+    background: #3d4248;
+    color: #cacaca;
+    cursor: pointer;
+}
+
+.img-thumbnail {
+    border: 8px solid #3d4248 !important;
+    background-color: #3d4248 !important;
+    border-radius: 5.5%;
+}
+
+.botonsito:hover {
+    background-color: #cacaca;
+    color: #3d4248;
+    cursor: pointer;
+}
+h1{
+    color: #cacaca;
+}
+
+.tarjetas {
+    background: #3d4248;
+    color: #cacaca;
+}
