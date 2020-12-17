@@ -43,7 +43,7 @@ export class HeroesService {
     return this.http.get(`${ this.url }/heroes.json`)
             .pipe(
               map( this.crearArreglo ),
-              delay(0)
+              delay(1000)
             );
   }
 

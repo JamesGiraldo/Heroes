@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  usuario: UsuarioModel = new UsuarioModel();
+  usuario: UsuarioModel = new UsuarioModel(); 
   recordarme = false;
 
   constructor( private auth: AuthService, private router: Router ) { }
@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     if (form.invalid) { return; }
     // dispara un alert cargando
     Swal.fire({
+      title: this.usuario.email,
       text: 'Espere por favor...',
       icon: 'info',
       allowOutsideClick: false
@@ -59,6 +60,12 @@ export class LoginComponent implements OnInit {
             icon: 'error'
           });
         });
+  }
+  ingresar( proveedor: string ){
+    console.log(proveedor);
+    this.auth.loginGoogle( proveedor );  
+    // redirecciona a la pagina siguiente      
+    this.router.navigateByUrl('/home');    
   }
 
 }

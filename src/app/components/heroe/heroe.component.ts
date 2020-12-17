@@ -62,10 +62,9 @@ export class HeroeComponent implements OnInit {
         text: 'Se guardo correctamente',
         icon: 'success'
       });
-
-    });
-    // redirecciona a la pagina siguiente
-    this.router.navigateByUrl('/heroes');
+      // redirecciona a la pagina siguiente
+      this.router.navigateByUrl('/heroes');
+    });    
   }
 
 }

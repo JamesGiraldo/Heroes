@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UsuarioModel } from '../models/usuario.model';
 import { map } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
+
 import Swal from 'sweetalert2'
 
 @Injectable({
@@ -11,20 +14,32 @@ export class AuthService {
   private url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty';
   private apikey = 'AIzaSyDlOWIGGUqL8mYLGFswsPN5LRZtbXSdKw4';
   userToken: string;
+  public usuario: any = {};
 
-  // crear nuevo usuario
-  // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
-
-
-  // Login
-  // https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
-
-  constructor( private http: HttpClient ) {
+  constructor( private http: HttpClient, public auth: AngularFireAuth ) {
     this.leerToken();
+    // se suscribe a cualquier estado que tenga la cuenta
+    this.auth.authState.subscribe( user =>{
+      console.log("Estados del usuario --> ",user);
+      // valida si no existe el usuario
+      if ( !user ){
+        return;
+      }
+      // se genera nuevas propiedades como el nombre y el id de la cuenta de google
+      this.usuario.nombre = user.displayName;
+      this.usuario.uid = user.uid;
+    });
    }
 
+  loginGoogle( proveedor: string ) {    
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());    
+  }
+
   logout(){
-    localStorage.removeItem('token');
+    // quita el token del localStorage
+    localStorage.removeItem('token');  
+    // Cierra la sesión de google también
+    this.auth.signOut();  
   }
   
   login(usuario: UsuarioModel){
