@@ -34,7 +34,7 @@
 
 <div class="container">
   <div class="row animated fadeIn fast row-cols-1 row-cols-md-3 g-4">
-    <div class="col mb-3" *ngFor="let heroe of heroes; let i = index">
+    <div class="col mb-3" *ngFor=" let i = index; let heroe of heroes | paginate: { itemsPerPage: 9, currentPage: page }">
       <div class="card tarjetas animated fadeIn fast" [title]="heroe.nombre">
         <div>
           <img src="assets/img/spiderman.jpg" class="card-img-top" [alt]="heroe.nombre">
@@ -65,6 +65,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div *ngIf="heroes.length > 9" class="text-center mt-3 paginacion">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
   </div>
 </div>
 </div>

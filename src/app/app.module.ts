@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+// paginatión
+import { NgxPaginationModule } from 'ngx-pagination';
+
 // rutas
 import { AppRoutingModule } from './app-routing.module';
 // import { APP_ROUTING } from './app.routes';
@@ -46,8 +49,9 @@ import { RegistroComponent } from './components/auth/registro/registro.component
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAnalyticsModule,
-    AngularFireAuthModule,    
-    AngularFirestoreModule
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    NgxPaginationModule
   ],
   providers: [
     HeroesService

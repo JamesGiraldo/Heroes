@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../servicios/heroes.service';
 import { HeroeModel } from '../../models/heroe.model';
 import Swal from 'sweetalert2';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @Component({
   selector: 'app-heroes',
@@ -10,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class HeroesComponent implements OnInit {
 
+  page: number = 1;
   heroes: HeroeModel[] = [];
   cargando = false;
 
