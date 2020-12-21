@@ -7,7 +7,7 @@
         </div>
         <div class="col">
             <div class="float-right">
-                <button routerLink="/heroe/nuevo" class="btn botonsito btn-primary">
+                <button routerLink="/form/nuevo" class="btn botonsito btn-primary">
                   <i class="fa fa-plus"></i>
                 </button>
             </div>
@@ -40,36 +40,36 @@
                         <img src="assets/img/spiderman.jpg" class="card-img-top" [alt]="heroe.nombre">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title nombre">{{heroe.nombre}}</h5>
-                        <p class="card-text"></p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="">
-                            <div class="row row-cols-2">
-                                <div class="col">
+                        <div class="row">
+                            <div class="col-8">
+                                <h5 class="card-title nombre">{{heroe.nombre}}</h5>
+                            </div>
+                            <div class="col-4">
+                                <div class="float-right">
                                     <small *ngIf="heroe.vivo" class="badge badge-success">Vivo</small>
                                     <small *ngIf="!heroe.vivo" class="badge badge-danger">Muerto</small>
                                 </div>
-                                <div class="col">
-                                    <div class="float-right">
-                                        <button class="btn btn-info mr-1" title="Borrar" (click)="borrarHeroe( heroe, i ) ">
-                                          <i class="fa fa-eye"></i>
-                                        </button>
-                                        <button class="btn btn-success mr-1" title="Editar" [routerLink]="['/heroe', heroe.id ]">
-                                          <i class="fa fa-pencil"></i>
-                                        </button>
-                                        <button class="btn btn-danger" title="Borrar" (click)="borrarHeroe( heroe, i ) ">
-                                          <i class="fa fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
                             </div>
+                        </div>
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row container">
+                            <button class="btn btn-info mr-1" title="Ver" [routerLink]="['/heroe', heroe.id ]">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                            <button class="btn btn-success mr-1" title="Editar" [routerLink]="['/form', heroe.id ]">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger" title="Borrar" (click)="borrarHeroe( heroe, i ) ">
+                                <i class="fa fa-trash"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="heroes.length > 9" class="text-center mt-3 paginacion">
+        <div *ngIf="heroes.length > 9" class="text-center mt-3 mb-4 paginacion">
             <pagination-controls (pageChange)="page = $event"></pagination-controls>
         </div>
     </div>

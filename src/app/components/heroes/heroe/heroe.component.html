@@ -1,59 +1,43 @@
 <app-navbar></app-navbar>
-<div class="container mt-4">
+<div class="container animated fadeIn fast mt-4">
     <div class="row">
         <div class="col">
-            <h1 class="animated fadeIn fast">heroes <small>Nombre de persona</small> </h1>
+            <h1 class="animated fadeIn fast">Heroé <small> {{ heroe.nombre | uppercase }} </small> </h1>
             <hr>
         </div>
         <div class="col">
             <div class="float-right">
                 <button routerLink="/heroes" title="Heroes" class="btn botonsito btn-primary">
-          <i class="fa fa-arrow-left"></i>
-        </button>
+                    <i class="fa fa-arrow-left"></i>
+                </button>
             </div>
         </div>
     </div>
-    <div class="jumbotron">
-        <div class="row animated fadeIn faster">
-            <div class="col">
-                <form (ngSubmit)="guardar( f )" #f="ngForm">
-                    <div class="form-group">
-                        <label>Firebase ID</label>
-                        <input type="text" class="form-control" placeholder="Firebase ID" [(ngModel)]="heroe.id" name="id" disabled="disabled">
-                        <small class="form-text text-muted">Este campo es autogenerado</small>
+    <div class="mt-4 mb-4">
+        <div class="jumbotron animated fadeIn fast tarjetas">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="assets/img/spiderman.jpg" title="nombre" class="animated fadeIn img-thumbnail" alt="heroe.nombre">
+                    <div class="container float-right">
+                        <div class="text-center mt-3">
+                            <span *ngIf="heroe.vivo" class="d-inline-block" tabindex="0">
+                                <button class="btn btn-success" style="pointer-events: none;" type="button" disabled>Vivo</button>
+                            </span>
+                            <span *ngIf="!heroe.vivo" class="d-inline-block" tabindex="0">
+                                <button class="btn btn-danger" style="pointer-events: none;" type="button" disabled>Muerto</button>
+                            </span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="Nombre del héroe" [(ngModel)]="heroe.nombre" name="nombre" required>
-                        <span class="text-danger animated fadeIn" *ngIf="f.submitted && f.controls['nombre'].errors">El nombre es requerido</span>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 mt-3 animated fadeIn fast">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ heroe.nombre | uppercase }}</h3>
+                            <p class="card-text"> {{ heroe.bio }} </p>
+                            <!-- <p class="card-text"><small class="text-muted">Fecha de aparición: ... </small></p> -->
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Poder</label>
-                        <input type="text" class="form-control" [(ngModel)]="heroe.poder" name="poder" placeholder="Poder del héroe">
-                    </div>
-                    <div class="form-group">
-                        <label>Historia</label>
-                        <textarea type="text" class="form-control" [(ngModel)]="heroe.bio" name="bio" placeholder="Historia"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Estado</label>
-                        <br>
-                        <button *ngIf="heroe.vivo" (click)="heroe.vivo = false" class="btn btn-success w-50" type="button">
-                          <i class="fa fa-smile-o"></i>
-                          Vivo
-                        </button>
-                        <button *ngIf="!heroe.vivo" (click)="heroe.vivo = true" class="btn btn-danger w-50" type="button">
-                          <i class="fa fa-frown-o"></i>
-                          Muerto
-                        </button>
-                    </div>
-                    <hr>
-                    <div class="form-group text-center">
-                        <button type="submit" class="btn btn-outline-primary w-25">
-              <i class="fa fa-save"></i> Guardar
-            </button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

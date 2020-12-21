@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../../servicios/heroes.service';
 import { HeroeModel } from '../../../models/heroe.model';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import {NgxPaginationModule} from 'ngx-pagination';
 
@@ -16,7 +17,8 @@ export class HeroesComponent implements OnInit {
   cargando = false;
 
 
-  constructor( private heroesService: HeroesService ) { }
+  constructor( private heroesService: HeroesService,
+               private router: Router ) { }
 
   ngOnInit() {
 
@@ -30,7 +32,6 @@ export class HeroesComponent implements OnInit {
   }
 
   borrarHeroe( heroe: HeroeModel, i: number ) {
-
     Swal.fire({
       title: '¿Está seguro?',
       text: `Está seguro que desea borrar a ${ heroe.nombre }`,
@@ -38,16 +39,11 @@ export class HeroesComponent implements OnInit {
       showConfirmButton: true,
       showCancelButton: true
     }).then( resp => {
-
       if ( resp.value ) {
         this.heroes.splice(i, 1);
         this.heroesService.borrarHeroe( heroe.id ).subscribe();
       }
-
     });
-
-
-
   }
 
 
