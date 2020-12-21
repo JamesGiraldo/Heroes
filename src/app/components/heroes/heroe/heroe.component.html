@@ -15,7 +15,28 @@
     </div>
     <div class="mt-4 mb-4">
         <div class="jumbotron animated fadeIn fast tarjetas">
-            <div class="row">
+            <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+                <h4 class="alert-heading">Cargando</h4>
+                <p>
+                    <i class="fa fa-refresh fa-spin fa-5x"></i>
+                </p>
+                <p class="mb-0">
+                    Espere por favor...
+                </p>
+            </div>
+            <div *ngIf="!cargando" class="row">
+                <div class="col">
+                    <div class="float-right">
+                        <button class="btn btn-success mr-1" title="Editar" [routerLink]="['/form', heroe.id ]">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                        <button class="btn btn-danger" title="Borrar" (click)="borrarHeroe( heroe.id ) ">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!cargando" class="row">
                 <div class="col-md-6">
                     <img src="assets/img/spiderman.jpg" title="nombre" class="animated fadeIn img-thumbnail" alt="heroe.nombre">
                     <div class="container float-right">
@@ -33,7 +54,8 @@
                     <div class="mb-3 mt-3 animated fadeIn fast">
                         <div class="card-body">
                             <h3 class="card-title">{{ heroe.nombre | uppercase }}</h3>
-                            <p class="card-text"> {{ heroe.bio }} </p>
+                            <p class="card-text"> <span>Biografia: </span> {{ heroe.bio }} </p>
+                            <p class="card-text"> <span>Poder: </span> {{ heroe.poder }} </p>
                             <!-- <p class="card-text"><small class="text-muted">Fecha de aparición: ... </small></p> -->
                         </div>
                     </div>

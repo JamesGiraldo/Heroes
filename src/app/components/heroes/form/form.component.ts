@@ -65,7 +65,7 @@ export class FormComponent implements OnInit {
       });
       Swal.close();
       // redirecciona a la pagina siguiente
-      this.router.navigateByUrl('/heroes');
+      this.router.navigate(['/heroe', this.heroe.id]);
     });    
   }
 

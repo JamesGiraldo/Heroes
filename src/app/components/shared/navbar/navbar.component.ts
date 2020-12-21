@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuarioModel } from 'src/app/models/usuario.model';
-import { AuthService } from 'src/app/servicios/auth.service';
+import { UsuarioModel } from '../../../models/usuario.model';
+import { AuthService } from '../../../servicios/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   constructor( private router: Router, private auth: AuthService ){ }
 
   ngOnInit(): void {
-    this.usuario.email = localStorage.getItem('email');
+    this.usuario.email = localStorage.getItem('email');        
   }
 
   buscarHeroe( termino: string){        

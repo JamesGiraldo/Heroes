@@ -36,7 +36,10 @@ export class HeroesService {
   }
 
   getHeroe( id: string ) {
-    return this.http.get(`${ this.url }/heroes/${ id }.json`);
+    return this.http.get(`${ this.url }/heroes/${ id }.json`)
+                    .pipe(                      
+                      delay(500)
+                    );
   }
 
   getHeroes() {

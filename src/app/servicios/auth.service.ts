@@ -20,7 +20,7 @@ export class AuthService {
     this.leerToken();
     // se suscribe a cualquier estado que tenga la cuenta
     this.auth.authState.subscribe( user =>{
-      console.log("Estados del usuario --> ",user);
+      // console.log("Estados del usuario --> ",user);
       // valida si no existe el usuario
       if ( !user ){
         return;
