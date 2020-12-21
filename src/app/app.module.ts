@@ -30,6 +30,7 @@ import { HeroeComponent } from './components/heroes/heroe/heroe.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegistroComponent } from './components/auth/registro/registro.component';
 import { FormComponent } from './components/heroes/form/form.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FormComponent } from './components/heroes/form/form.component';
     HeroeComponent,
     LoginComponent,
     RegistroComponent,
-    FormComponent
+    FormComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
