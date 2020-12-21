@@ -6,7 +6,8 @@ export class HeroeModel {
     nombre: string;
     poder: string;
     vivo: boolean;
-
+    bio: string;
+    
     constructor() {
         this.vivo = true;
     }

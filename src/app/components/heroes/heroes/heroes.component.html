@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<div class="container animated fadeIn fast mt-4">
+    <div class="row">
+        <div class="col">
+            <h1 class="animated fadeIn fast">Heroes <small>Vivos o Muertos</small> </h1>
+            <hr>
+        </div>
+        <div class="col">
+            <div class="float-right">
+                <button routerLink="/heroe/nuevo" class="btn botonsito btn-primary">
+                  <i class="fa fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!cargando && heroes.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">No hay registros</h4>
+        <p>
+            <i class="fa fa-exclamation fa-2x"></i>
+        </p>
+    </div>
+
+    <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">Cargando</h4>
+        <p>
+            <i class="fa fa-refresh fa-spin fa-5x"></i>
+        </p>
+        <p class="mb-0">
+            Espere por favor
+        </p>
+    </div>
+
+
+    <div class="container">
+        <div class="row animated fadeIn fast row-cols-1 row-cols-md-3 g-4">
+            <div class="col mb-3" *ngFor=" let i = index; let heroe of heroes | paginate: { itemsPerPage: 9, currentPage: page }">
+                <div class="card tarjetas animated fadeIn fast" [title]="heroe.nombre">
+                    <div>
+                        <img src="assets/img/spiderman.jpg" class="card-img-top" [alt]="heroe.nombre">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title nombre">{{heroe.nombre}}</h5>
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="">
+                            <div class="row row-cols-2">
+                                <div class="col">
+                                    <small *ngIf="heroe.vivo" class="badge badge-success">Vivo</small>
+                                    <small *ngIf="!heroe.vivo" class="badge badge-danger">Muerto</small>
+                                </div>
+                                <div class="col">
+                                    <div class="float-right">
+                                        <button class="btn btn-info mr-1" title="Borrar" (click)="borrarHeroe( heroe, i ) ">
+                                          <i class="fa fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-success mr-1" title="Editar" [routerLink]="['/heroe', heroe.id ]">
+                                          <i class="fa fa-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-danger" title="Borrar" (click)="borrarHeroe( heroe, i ) ">
+                                          <i class="fa fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="heroes.length > 9" class="text-center mt-3 paginacion">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

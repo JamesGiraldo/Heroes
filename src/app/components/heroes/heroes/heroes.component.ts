@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService } from '../../servicios/heroes.service';
-import { HeroeModel } from '../../models/heroe.model';
+import { HeroesService } from '../../../servicios/heroes.service';
+import { HeroeModel } from '../../../models/heroe.model';
 import Swal from 'sweetalert2';
 import {NgxPaginationModule} from 'ngx-pagination';
 

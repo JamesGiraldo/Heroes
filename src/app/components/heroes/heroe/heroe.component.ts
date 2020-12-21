@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { HeroeModel } from '../../models/heroe.model';
-import { HeroesService } from '../../servicios/heroes.service';
+import { HeroeModel } from '../../../models/heroe.model';
+import { HeroesService } from '../../../servicios/heroes.service';
 
 import Swal from 'sweetalert2';
 

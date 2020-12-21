@@ -25,10 +25,11 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
-import { HeroeComponent } from './components/heroe/heroe.component';
+import { HeroesComponent } from './components/heroes/heroes/heroes.component';
+import { HeroeComponent } from './components/heroes/heroe/heroe.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegistroComponent } from './components/auth/registro/registro.component';
+import { FormComponent } from './components/heroes/form/form.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { RegistroComponent } from './components/auth/registro/registro.component
     HeroesComponent,
     HeroeComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
