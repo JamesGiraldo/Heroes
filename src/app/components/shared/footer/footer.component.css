@@ -1,0 +1,27 @@
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+}
+
+.jumbotron {
+    background: #3d4248;
+    color: #cacaca;
+}
+
+.footer {
+    background-color: #3d4248 !important;
+    bottom: 0;
+}
+
+.color-0 {
+    background: #000 !important;
+}
+
+.color-1 {
+    color: #258a9d;
+}
+
+.img-fluid {
+    border-radius: 5% !important;
+}
