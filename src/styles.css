@@ -3,7 +3,8 @@ body {
     font-family: 'Merriweather', serif !important;
     background: #343a40 !important;
 }
-.Salir:hover{
+
+.Salir:hover {
     cursor: pointer;
 }
 

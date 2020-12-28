@@ -1,0 +1,11 @@
+<!-- Slider main container -->
+<div class="swiper-container animated fadeIn fast">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper animated fadeIn fast ">
+        <!-- Slides -->
+        <div *ngFor="let actor of cast" class="swiper-slide text-center">
+            <img [src]="actor.profile_path | poster" class="img-thumbnail" [alt]="actor.name">
+            <p>{{ actor.name }}</p>
+        </div>
+    </div>
+</div>

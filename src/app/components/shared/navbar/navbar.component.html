@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="animate__animated animate__fadeIn navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-        <img src="assets/img/A-64.png" width="30" height="30" alt="Logo">
+        <img class="animate__animated animate__bounce" src="assets/img/A-64.png" width="30" height="30" alt="Logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,11 +14,14 @@
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['/heroes']">Heroes</a>
             </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/peliculas']">Peliculas</a>
+            </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link"> <span>{{usuario.email}}</span> </a>
+                    <a class="nav-link animate__animated animate__fadeIn"> <span>{{usuario.email}}</span> </a>
                 </li>
                 <li class="nav-item">
                     <a class="Salir nav-link" (click)="salir()">Cerrar Sesión</a>

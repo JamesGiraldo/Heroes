@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="container mb-5 mt-4">
+    <div *ngIf="cargando" class="alert alert-info text-center mt-3 animate__animated animate__fadeIn">
+        <h4 class="alert-heading">Cargando</h4>
+        <p>
+            <i class="fa fa-refresh fa-spin fa-5x"></i>
+        </p>
+        <p class="mb-0">
+            Espere por favor...
+        </p>
+    </div>
+    <div class="jumbotron animate__animated animate__fadeIn tarjetas" *ngIf="!cargando; movie">
+        <div class="row">
+            <div class="col-md-6">
+                <img [src]="movie.poster_path | poster" class="img-thumbnail poster" [alt]="movie.title">
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3 mt-3 animated fadeIn fast">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ movie.title | uppercase }}</h3>
+                        <div class="row">
+                            <div class="col">
+                                <star-rating [value]="movie.vote_average" totalstars="10" checkedcolor="yellow" uncheckedcolor="grey" size="15px" readonly="false">
+                                </star-rating>
+                            </div>
+                            <div class="col">
+                                {{ movie.vote_average | number: '1.1-2' }}
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col ">
+                                {{ movie.overview }}
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <button (click)="onRegresar()" class="btn botonsito">
+                                    Regresar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4" *ngIf="cast.length > 0">
+        <div class="col" *ngIf="!cargando">
+            <app-cast-slideshow [cast]="cast"></app-cast-slideshow>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <app-footer></app-footer>
+</div>

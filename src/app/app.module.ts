@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 // paginatión
 import { NgxPaginationModule } from 'ngx-pagination';
 
+// Estrellitas
+import { RatingModule } from 'ng-starrating';
+
 // rutas
 import { AppRoutingModule } from './app-routing.module';
 // import { APP_ROUTING } from './app.routes';
@@ -19,6 +22,7 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
+// credenciales de enviroments
 import { environment } from '../environments/environment';
 
 // componentes
@@ -31,6 +35,13 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegistroComponent } from './components/auth/registro/registro.component';
 import { FormComponent } from './components/heroes/form/form.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { PeliculaComponent } from './components/peliculas/pelicula/pelicula.component';
+import { BuscarpeliculaComponent } from './components/peliculas/buscarpelicula/buscarpelicula.component';
+import { PeliculasComponent } from './components/peliculas/peliculas/peliculas.component';
+import { SlideshowComponent } from './components/peliculas/slideshow/slideshow.component';
+import { PeliculasPosterGridComponent } from './components/peliculas/peliculas-poster-grid/peliculas-poster-grid.component';
+import { PosterPipe } from './pipes/peliculas/poster.pipe';
+import { CastSlideshowComponent } from './components/peliculas/cast-slideshow/cast-slideshow.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +53,14 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     LoginComponent,
     RegistroComponent,
     FormComponent,
-    FooterComponent
+    FooterComponent,
+    PeliculaComponent,
+    BuscarpeliculaComponent,
+    PeliculasComponent,
+    SlideshowComponent,
+    PeliculasPosterGridComponent,
+    PosterPipe,
+    CastSlideshowComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +73,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     AngularFireAnalyticsModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    RatingModule
   ],
   providers: [
     HeroesService
