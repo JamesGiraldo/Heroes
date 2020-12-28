@@ -1,0 +1,17 @@
+.footer {
+    bottom: 0;
+}
+
+.botonsito {
+    border-radius: 20px;
+    border: 2px solid #9a9da0;
+    background: #3d4248;
+    color: #cacaca;
+    cursor: pointer;
+}
+
+.botonsito:hover {
+    background-color: #cacaca;
+    color: #3d4248;
+    cursor: pointer;
+}

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+
 
 import { HeroeModel } from '../../../models/heroe.model';
 import { HeroesService } from '../../../servicios/heroes.service';
@@ -19,7 +21,8 @@ export class FormComponent implements OnInit {
 
   constructor( private heroesService: HeroesService,
                private route: ActivatedRoute,
-               private router: Router ) { }
+               private router: Router,
+               private location: Location ) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -67,6 +70,10 @@ export class FormComponent implements OnInit {
       // redirecciona a la pagina siguiente
       this.router.navigate(['/heroe', this.heroe.id]);
     });    
+  }
+
+  onRegresar(){
+    this.location.back();
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { HeroeModel } from '../../../models/heroe.model';
 import { HeroesService } from '../../../servicios/heroes.service';
@@ -19,7 +20,8 @@ export class HeroeComponent implements OnInit {
 
   constructor( private heroesService: HeroesService,
                private route: ActivatedRoute,
-               private router: Router ) { }
+               private router: Router,
+               private location: Location ) { }
 
   ngOnInit() {  
     this.cargando = true;
@@ -45,6 +47,10 @@ export class HeroeComponent implements OnInit {
         this.router.navigate(['/home']);
       }
     });
+  }
+
+  onRegresar(){
+    this.location.back();
   }
 
 }

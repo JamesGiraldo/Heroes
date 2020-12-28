@@ -3,7 +3,8 @@ import { HeroesService } from '../../../servicios/heroes.service';
 import { HeroeModel } from '../../../models/heroe.model';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-heroes',
@@ -18,7 +19,8 @@ export class HeroesComponent implements OnInit {
 
 
   constructor( private heroesService: HeroesService,
-               private router: Router ) { }
+               private router: Router,
+               private location: Location  ) { }
 
   ngOnInit() {
 
@@ -44,6 +46,10 @@ export class HeroesComponent implements OnInit {
         this.heroesService.borrarHeroe( heroe.id ).subscribe();
       }
     });
+  }
+
+  onRegresar(){
+    this.location.back();
   }
 
 
