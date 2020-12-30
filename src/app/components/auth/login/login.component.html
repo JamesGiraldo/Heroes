@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 mx-auto mt-5">
-            <div class="card tarjetas jumbotron animated fadeIn fast">
+            <div class="card tarjetas jumbotron animate__animated animate__backInUp">
                 <div class="card-body">
                     <h2 class="text-center">LOGIN</h2>
-                    <form (ngSubmit)="login( f )" #f="ngForm" >
+                    <form (ngSubmit)="login( f )" #f="ngForm">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input name="email" type="email" class="form-control" [(ngModel)]="usuario.email" placeholder="Escriba su correco electronico." required />
@@ -13,7 +13,7 @@
                         <div class="form-group" data-validate="Password is required">
                             <label for="password">Password</label>
                             <input name="password" type="password" class="form-control" minlength="6" [(ngModel)]="usuario.password" placeholder="Escriba su contraseña." required />
-                            <span class="text-danger animated fadeIn" *ngIf="f.submitted && f.controls['password'].errors">La contraseña es obligatoria</span>                    
+                            <span class="text-danger animated fadeIn" *ngIf="f.submitted && f.controls['password'].errors">La contraseña es obligatoria</span>
                         </div>
                         <button class="btn btn-primary btn-lg btn-block"> Ingresar </button>
                     </form>
